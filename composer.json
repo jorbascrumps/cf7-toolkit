@@ -1,0 +1,14 @@
+{
+    "name": "jorbascrumps/cf7-toolkit",
+    "authors": [
+        {
+            "name": "Chris Wright"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "CF7_Toolkit\\": "includes/"
+        }
+    }
+}
