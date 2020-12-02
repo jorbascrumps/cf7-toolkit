@@ -10,7 +10,7 @@ namespace CF7_Toolkit;
 require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 function init () {
-    new \CF7_Toolkit\Panels\Recaptcha();
+    (new \CF7_Toolkit\Panels\Recaptcha())->init();
 }
 
 add_action( 'init', __NAMESPACE__ . '\init' );

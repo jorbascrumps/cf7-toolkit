@@ -1,0 +1,16 @@
+<phpunit
+    bootstrap="tests/bootstrap.php"
+    colors="true"
+    testdox="true"
+>
+    <testsuites>
+        <testsuite name="test name">
+            <directory suffix="Test.php">tests</directory>
+        </testsuite>
+    </testsuites>
+    <groups>
+        <exclude>
+            <group>skipped</group>
+        </exclude>
+    </groups>
+</phpunit>
