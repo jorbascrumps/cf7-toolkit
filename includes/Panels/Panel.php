@@ -2,16 +2,24 @@
 
 namespace CF7_Toolkit\Panels;
 
-abstract class Panel {
+class Panel {
     protected $name;
-    protected $title;
+    protected $title = 'Panel';
 
     public function __construct()
     {
-        $this->name = 'wpcf7_toolkit_' . strtolower($this->title);
+        $this->name = sprintf( 'wpcf7_toolkit_%s', strtolower( $this->title ) );
+    }
 
+    public function init(): void
+    {
         add_action( 'wpcf7_editor_panels', [ $this, 'register' ] );
         add_action( 'wpcf7_after_save', [ $this, 'save' ] );
+    }
+
+    public function get($prop)
+    {
+        return $this->{$prop};
     }
 
     public function register($panels): array
@@ -26,17 +34,16 @@ abstract class Panel {
 
     public function render($form): void
     {
-        echo <<<RENDER
-            <h2>{$this->title}</h2>
-        RENDER;
+        echo "<h2>{$this->title}</h2>";
     }
 
-    public function save($form): void
+    public function save($form): bool
     {
-        if ( empty( $_POST ) ) {
-            return;
+        if ( !isset( $_POST[$this->name] ) ) {
+            return FALSE;
         }
 
-        update_option( "{$this->name}_{$form->id()}", $_POST[$this->name] );
+        $option = sprintf( '%s_%s', $this->name, $form->id() );
+        return update_option( $option, $_POST[$this->name] );
     }
 }
