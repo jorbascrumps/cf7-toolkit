@@ -5,10 +5,20 @@
             "name": "Chris Wright"
         }
     ],
+    "repositories": [
+      {
+        "type": "composer",
+        "url": "https://wpackagist.org"
+      }
+    ],
     "require": {},
     "autoload": {
         "psr-4": {
             "CF7_Toolkit\\": "includes/"
         }
+    },
+    "require-dev": {
+        "10up/wp_mock": "0.4.2",
+        "wpackagist-plugin/contact-form-7": "5.3"
     }
 }
