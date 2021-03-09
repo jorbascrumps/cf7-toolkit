@@ -43,7 +43,7 @@ class Panel {
             return FALSE;
         }
 
-        $option = sprintf( '%s_%s', $this->name, $form->id() );
+        $option = sprintf( 'cf7_toolkit_%s', $form->id() );
         return update_option( $option, $_POST[$this->name] );
     }
 }

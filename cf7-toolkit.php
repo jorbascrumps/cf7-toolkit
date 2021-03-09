@@ -1,8 +1,11 @@
 <?php
 /*
     Plugin Name: CF7 Toolkit
+    Plugin URI: https://github.com/jorbascrumps/cf7-toolkit
     Version: 1.0.0
-    Description: TODO
+    Author: Chris Wright
+    Author URI: https://chriswright.dev
+    Description: An extensible suite of integrations for Contact Form 7
  */
 
 namespace CF7_Toolkit;
